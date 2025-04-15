@@ -29,7 +29,7 @@ runs:
         curl -sSL https://install.python-poetry.org | py -
         echo "Poetry installed successfully."
         $env:GITHUB_PATH += ";$env:APPDATA\Python\Scripts" | Out-File -FilePath $env:GITHUB_PATH -Append
-        echo $env:GITHUB_PATH
+        echo $env:PATH
 
     - if: ${{ (runner.os == 'Linux' || runner.os == 'macOS') && inputs.poetry-version != 'latest' }}
       shell: bash
@@ -47,4 +47,4 @@ runs:
         curl -sSL https://install.python-poetry.org | py - --version ${{ inputs.poetry-version }}
         echo "Poetry installed successfully."
         $env:GITHUB_PATH += ";$env:APPDATA\Python\Scripts" | Out-File -FilePath $env:GITHUB_PATH -Append
-        echo $env:GITHUB_PATH
+        echo $env:PATH
