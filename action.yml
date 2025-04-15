@@ -29,6 +29,7 @@ runs:
         echo "%APPDATA%\Python\Scripts" >> $GITHUB_PATH
         echo "Poetry successfully added to PATH."
         Invoke-Command { & "pwsh.exe" } -NoNewScope
+        echo $GITHUB_PATH
         echo "Poetry version:"
         poetry --version
 
@@ -49,6 +50,7 @@ runs:
         echo "Poetry installed successfully."
         echo "%APPDATA%\Python\Scripts" >> $GITHUB_PATH
         echo "Poetry successfully added to PATH."
+        echo $GITHUB_PATH
         Invoke-Command { & "pwsh.exe" } -NoNewScope
         echo "Poetry version:"
         poetry --version
