@@ -1,0 +1,54 @@
+name: "Install Poetry"
+author: "@stacynoland"
+description: "Install Poetry using the official installer"
+branding:
+  icon: "download"
+  color: "blue"
+inputs:
+  poetry-version:
+    description: "The version of Poetry to install. If not specified, the latest version will be installed."
+    required: false
+    default: "latest"
+
+runs:
+  using: "composite"
+  steps:
+    - if: ${{ runner.os == 'Linux' || runner.os == 'macOS' }} && ${{ inputs.poetry-version == 'latest' }}
+      shell: bash
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "Poetry installed successfully."
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        echo "Poetry successfully added to PATH."
+        echo "Poetry version:"
+        poetry --version
+
+    - if: ${{ runner.os == 'Windows' }} && ${{ inputs.poetry-version == 'latest' }}
+      shell: pwsh
+      run: |
+        curl -sSL https://install.python-poetry.org | py -
+        echo "Poetry installed successfully."
+        echo "%APPDATA%\Python\Scripts" >> $GITHUB_PATH
+        echo "Poetry successfully added to PATH."
+        echo "Poetry version:"
+        poetry --version
+
+    - if: ${{ runner.os == 'Linux' || runner.os == 'macOS' }} && ${{ inputs.poetry-version != 'latest' }}
+      shell: bash
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 - --version ${{ inputs.poetry-version }}
+        echo "Poetry installed successfully."
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        echo "Poetry successfully added to PATH."
+        echo "Poetry version:"
+        poetry --version
+
+    - if: ${{ runner.os == 'Windows' }} && ${{ inputs.poetry-version != 'latest' }}
+      shell: pwsh
+      run: |
+        curl -sSL https://install.python-poetry.org | py - --version ${{ inputs.poetry-version }}
+        echo "Poetry installed successfully."
+        echo "%APPDATA%\Python\Scripts" >> $GITHUB_PATH
+        echo "Poetry successfully added to PATH."
+        echo "Poetry version:"
+        poetry --version
