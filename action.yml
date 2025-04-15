@@ -26,7 +26,7 @@ runs:
       run: |
         curl -sSL https://install.python-poetry.org | py -
         echo "Poetry installed successfully."
-        echo "%APPDATA%\Python\Scripts" >> $env:GITHUB_PATH
+        echo "$env:APPDATA\Python\Scripts" >> $env:GITHUB_PATH
         echo "Poetry successfully added to PATH."
         $env:GITHUB_PATH
         echo "Poetry version:"
@@ -47,7 +47,7 @@ runs:
       run: |
         curl -sSL https://install.python-poetry.org | py - --version ${{ inputs.poetry-version }}
         echo "Poetry installed successfully."
-        echo "%APPDATA%\Python\Scripts" >> $env:GITHUB_PATH
+        echo "$env:APPDATA\Python\Scripts" >> $env:GITHUB_PATH
         $env:GITHUB_PATH
         echo "Poetry successfully added to PATH."
         echo "Poetry version:"
