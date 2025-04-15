@@ -28,15 +28,7 @@ runs:
       run: |
         curl -sSL https://install.python-poetry.org | py -
         echo "Poetry installed successfully."
-        echo $env:GITHUB_PATH
-        echo $env:PATH
-        echo "C:\Users\runneradmin\AppData\Roaming\Python\Scripts" >> $env:GITHUB_PATH
-        echo $env:GITHUB_PATH
-        echo $env:PATH
-        echo "Poetry successfully added to PATH."
-        Invoke-Command { & "pwsh.exe" } -NoNewScope
-        echo "Poetry version:"
-        poetry --version
+        echo $env:APPDATA
 
     - if: ${{ (runner.os == 'Linux' || runner.os == 'macOS') && inputs.poetry-version != 'latest' }}
       shell: bash
@@ -53,12 +45,4 @@ runs:
       run: |
         curl -sSL https://install.python-poetry.org | py - --version ${{ inputs.poetry-version }}
         echo "Poetry installed successfully."
-        echo $env:GITHUB_PATH
-        echo $env:PATH
-        echo "C:\Users\runneradmin\AppData\Roaming\Python\Scripts" >> $env:GITHUB_PATH
-        echo $env:GITHUB_PATH
-        echo $env:PATH
-        echo "Poetry successfully added to PATH."
-        Invoke-Command { & "pwsh.exe" } -NoNewScope
-        echo "Poetry version:"
-        poetry --version
+        echo $env:APPDATA
