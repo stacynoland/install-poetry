@@ -1,6 +1,6 @@
-![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fpython-poetry.org%2Fbadge%2Fv0.json)
+![Poetry Package Manager](https://img.shields.io/endpoint?url=https%3A%2F%2Fpython-poetry.org%2Fbadge%2Fv0.json)
 ![Python Versions](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue?logo=python&logoColor=yellow)
-![GitHub Release](https://img.shields.io/github/v/release/stacynoland/install-poetry?label=Current%20Release)
+[![GitHub Release](https://img.shields.io/github/v/release/stacynoland/install-poetry?label=Current%20Release)](https://github.com/stacynoland/install-poetry/releases)
 [![Tests](https://github.com/stacynoland/install-poetry/actions/workflows/test.yml/badge.svg)](https://github.com/stacynoland/install-poetry/actions/workflows/test.yml)
 
 # Install Poetry Official
